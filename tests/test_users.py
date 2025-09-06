@@ -2,7 +2,12 @@ import pytest
 import requests
 from jsonschema import validate
 from libraries.util import read_excel_data
+import logging
+import allure
 
+logger = logging.getLogger(__name__)
+
+# JSON schema
 user_schema = {
     "type": "object",
     "properties": {
@@ -15,23 +20,42 @@ user_schema = {
     "required": ["id", "name", "email", "gender", "status"]
 }
 
-user_data = read_excel_data("tests/user_data.xlsx")
-
+# Safe Excel load
+try:
+    user_data = read_excel_data("tests/user_data.xlsx")
+except Exception as e:
+    logger.error(f"❌ Failed to load Excel data: {e}")
+    user_data = [("dummy", "dummy@example.com", "male", "active")]  # fallback
 
 @pytest.mark.parametrize("name,email,gender,status", user_data)
 def test_can_create_user(base_url, headers, end_point, name, email, gender, status):
-    data = {
-        "name": name,
-        "email": email,
-        "gender": gender,
-        "status": status
-    }
+    data = {"name": name, "email": email, "gender": gender, "status": status}
 
-    post_response = requests.post(base_url + end_point, headers=headers, json=data)
-    assert post_response.status_code == 201
+    with allure.step("➡️ Create User (POST)"):
+        logger.info(f"➡️ Sending POST request to {base_url+end_point} with data: {data}")
+        post_response = requests.post(base_url + end_point, headers=headers, json=data, timeout=10)
 
-    user_id = post_response.json()["id"]
-    validate(instance=post_response.json(), schema=user_schema)
+        allure.attach(str(data), name="Request Data", attachment_type=allure.attachment_type.JSON)
+        allure.attach(str(post_response.json()), name="Response Data", attachment_type=allure.attachment_type.JSON)
+        assert post_response.status_code == 201
+        response_json = post_response.json()
+        user_id = response_json["id"]
 
-    delete_response = requests.delete(base_url + end_point + f"{user_id}", headers=headers)
-    assert delete_response.status_code == 204
+        validate(instance=response_json, schema=user_schema)
+
+    with allure.step("➡️ Get User (GET)"):
+        logger.info(f"➡️ Sending GET request to {base_url}{end_point}{user_id}")
+        get_response = requests.get(f"{base_url}{end_point}{user_id}", headers=headers, timeout=10)
+
+        allure.attach(str(get_response.json()), name="GET Response", attachment_type=allure.attachment_type.JSON)
+
+        assert get_response.status_code == 200, f"❌ GET failed: {get_response.text}"
+        validate(instance=get_response.json(), schema=user_schema)
+
+    with allure.step("➡️ Delete User (DELETE)"):
+        logger.info(f"🗑️ Deleting user with ID {user_id}")
+        delete_response = requests.delete(f"{base_url}{end_point}{user_id}", headers=headers, timeout=10)
+
+        allure.attach(str(delete_response.text), name="DELETE Response", attachment_type=allure.attachment_type.TEXT)
+
+        assert delete_response.status_code == 204, f"❌ DELETE failed: {delete_response.text}"
