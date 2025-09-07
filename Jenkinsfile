@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/<your-username>/pytest-api-automation-framework.git'
+                git branch: 'main', url: 'https://github.com/rijukrroy/pytest-api-automation-framework.git'
             }
         }
 
