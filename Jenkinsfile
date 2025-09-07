@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        // Make sure Jenkins has Python installed or installed via system package
-        // Otherwise, we'll use venv as below
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -26,7 +21,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh '''
-                    venv/bin/python -m pytest --maxfail=1 --disable-warnings -q --alluredir=allure-results
+                    venv/bin/python -m pytest --maxfail=1 --disable-warnings -q --alluredir=allure-results --junitxml=allure-results/junit-results.xml
                 '''
             }
         }
@@ -44,8 +39,7 @@ pipeline {
 
     post {
         always {
-            // Publish test results if JUnit XML is generated
-            junit 'allure-results/*.xml'
+            junit 'allure-results/junit-results.xml'
         }
     }
 }
