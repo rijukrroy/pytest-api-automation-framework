@@ -1,71 +1,122 @@
-# 🐍 Pytest API Automation Framework
+# API Test Automation Framework (Pytest + Jenkins + Allure)
 
-A simple yet scalable **API Automation Framework** built using **Pytest**, **Requests**, and **Allure Reports**.  
-This framework demonstrates best practices for REST API testing, including data-driven tests, schema validation, logging, and reporting.
+This project is a **REST API test automation framework** built with Python, Pytest, and Requests, fully integrated with **Jenkins CI/CD** and **Allure reporting**.
 
----
-
-## 🚀 Features
-- API test automation with **pytest**
-- Data-driven testing from Excel (via `openpyxl`)
-- JSON Schema validation (`jsonschema`)
-- Centralized test configuration with `pytest.ini`
-- **Allure Reports** integration for beautiful reporting
-- Fixtures for base URL, headers, and reusable setup
-- Built-in **logging** in `conftest.py` for better debugging
-- Extensible structure for scaling to multiple APIs
+The goal is to provide a **scalable, maintainable, and CI/CD-ready automation setup** that can be reused for professional API testing projects.
 
 ---
 
-## 🛠️ Tech Stack
-![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)  
-![Requests](https://img.shields.io/badge/Requests-20232A?style=for-the-badge&logo=python&logoColor=white)  
-![Allure](https://img.shields.io/badge/Allure%20Reports-FF69B4?style=for-the-badge&logo=allure&logoColor=white)  
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+## ✅ Features
+- **Test Framework:** Built on [Pytest](https://docs.pytest.org/) (simple, powerful, extensible).  
+- **HTTP Requests:** Uses Python [requests](https://docs.python-requests.org/) for REST API calls.  
+- **Schema Validation:** JSON Schema validation using [jsonschema](https://pypi.org/project/jsonschema/).  
+- **Data-Driven Testing:** External test data managed via Excel ([openpyxl](https://openpyxl.readthedocs.io/)).  
+- **CI/CD Integration:** Automated pipeline via **Jenkins** with GitHub integration.  
+- **Test Reports:** Rich **Allure Reports** + **JUnit XML test results**.  
+- **Scalable Structure:** Organized modules for utilities, schemas, tests, and reports.  
 
 ---
 
 ## 📂 Project Structure
-```bash
+```
 pytest-api-automation-framework/
-├── tests/
-│   └── test_users.py        # Example API test
-├── utils/
-│   └── api_client.py        # Helper for API requests
-├── libraries/
-│   └── util.py              # Excel reader, reusable utilities
-├── reports/                 # Allure results directory
-├── conftest.py              # Fixtures (base_url, headers, logging)
-├── requirements.txt         # Project dependencies
-├── pytest.ini               # Config (env variables, pytest options)
-└── README.md                # Documentation
+│── libraries/ # Utility functions
+│ └── util.py # Excel reader, helpers
+│
+│── schemas/ # JSON schemas for validation
+│ └── user_schema.json
+│
+│── tests/ # Test cases
+│ └── test_users.py
+│
+│── requirements.txt # Python dependencies
+│── Jenkinsfile # Jenkins pipeline definition
+│── README.md # Project documentation
+```
+
 
 ---
-```bash
-## ⚙️ Setup & Installation
 
-**Clone the repo:**
-```bash
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the repository
+
 git clone https://github.com/rijukrroy/pytest-api-automation-framework.git
+
 cd pytest-api-automation-framework
 
-Create a virtual environment:
+2️⃣ Create & activate Python virtual environment
 
 python3 -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
 
+source venv/bin/activate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         # Linux/Mac
 
-Install dependencies:
+venv\Scripts\activate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      # Windows
+
+3️⃣ Install dependencies
+
+pip install --upgrade pip
 
 pip install -r requirements.txt
 
+4️⃣ Run tests locally
 
-Run tests:
+pytest --alluredir=allure-results --junitxml=allure-results/junit-results.xml
 
-pytest tests/test_users.py
+🏗 Jenkins Pipeline Setup
 
+Open Jenkins → New Item → Pipeline.
 
-Generate Allure report:
+Connect GitHub repo:
 
-pytest --alluredir=reports/allure-results
-allure serve reports/allure-results
+Repository URL: https://github.com/rijukrroy/pytest-api-automation-framework.git
+
+Branch: main
+
+Jenkins automatically detects the Jenkinsfile.
+
+Pipeline stages:
+
+✅ Checkout code
+
+✅ Setup Python virtual environment
+
+✅ Install dependencies
+
+✅ Run tests with Pytest
+
+✅ Archive results (JUnit XML)
+
+✅ Generate & publish Allure Report
+
+📊 Allure Reporting
+Local Machine
+allure serve allure-results
+
+In Jenkins
+
+Allure report is generated automatically in the pipeline.
+
+View the report from Jenkins job → Build Artifacts → Allure Report.
+
+🛠 Tech Stack
+
+Language: Python 3.12
+
+Test Framework: Pytest
+
+HTTP Client: Requests
+
+Validation: JSONSchema
+
+Reporting: Allure, JUnit XML
+
+CI/CD: Jenkins Pipeline (Groovy, Declarative)
+
+📷 Screenshots (To Be Added)
+
+Jenkins pipeline stages
+
+Allure report dashboard
+
+Test results summary
