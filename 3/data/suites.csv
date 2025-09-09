@@ -1,8 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Tue Sep 09 13:58:17 GMT 2025","Tue Sep 09 13:58:18 GMT 2025","1345","tests","test_users","","","","Create user → riju",""
-"passed","Tue Sep 09 13:58:21 GMT 2025","Tue Sep 09 13:58:22 GMT 2025","1269","tests","test_users","","","","Create user → petli",""
-"passed","Tue Sep 09 13:58:23 GMT 2025","Tue Sep 09 13:58:23 GMT 2025","552","tests","test_users_negative","","","","test_create_user_missing_fields","Verify creating a user with missing fields fails (422)"
-"passed","Tue Sep 09 13:58:22 GMT 2025","Tue Sep 09 13:58:23 GMT 2025","402","tests","test_users_negative","","","","test_create_user_invalid_token","Verify creating a user with an invalid token fails (401)"
-"passed","Tue Sep 09 13:58:18 GMT 2025","Tue Sep 09 13:58:19 GMT 2025","1297","tests","test_users","","","","Create user → manoj",""
-"passed","Tue Sep 09 13:58:20 GMT 2025","Tue Sep 09 13:58:21 GMT 2025","1348","tests","test_users","","","","Create user → sanjib",""
-"passed","Tue Sep 09 13:58:23 GMT 2025","Tue Sep 09 13:58:24 GMT 2025","809","tests","test_users_negative","","","","test_create_user_duplicate_email","Verify creating a user with duplicate email fails (422)"
