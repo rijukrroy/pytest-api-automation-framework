@@ -1,0 +1,3 @@
+2025-09-09 20:32:29,640 [INFO] ➡️ Sending POST request to https://gorest.co.in/public/v2/users/ with data: {'name': 'sanjib', 'email': 'sanjib002@company.com', 'gender': 'male', 'status': 'active'}
+2025-09-09 20:32:30,072 [INFO] ➡️ Sending GET request to https://gorest.co.in/public/v2/users/8111130
+2025-09-09 20:32:30,469 [INFO] 🗑️ Deleting user with ID 8111130
