@@ -1,5 +1,6 @@
 name: 🧪 Pytest with Allure
-
+permissions:
+  contents: write   # <-- allow actions to push to gh-pages
 on:
   push:
     branches: [ "main" ]
