@@ -120,3 +120,19 @@ Jenkins pipeline stages
 Allure report dashboard
 
 Test results summary
+
+## 📊 Allure Reports
+
+Below are sample reports generated using **Allure** for this project:
+
+### Overview
+![Allure Overview](docs/allure_overview.png)
+
+### Test Suites
+![Allure Suites](docs/allure_suites.png)
+
+### Trends
+![Allure Trends](docs/allure_trends.png)
+
+### Jenkins Stage View
+![Stage View](docs/Stage_view.png)
