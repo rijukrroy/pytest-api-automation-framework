@@ -2,16 +2,34 @@
 import os
 import pytest
 import logging
+import os
+import logging
+import pytest
 
-# --- Logging Configuration ---
+# Ensure reports directory exists
+os.makedirs("reports", exist_ok=True)
+
+# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("reports/test_log.log"),  # Save logs to file
-        logging.StreamHandler()                      # Show logs in console
+        logging.FileHandler("reports/test_log.log"),
+        logging.StreamHandler()
     ]
 )
+#
+# logger = logging.getLogger(__name__)
+#
+# # --- Logging Configuration ---
+# logging.basicConfig(
+#     level=logging.INFO,
+#     format="%(asctime)s [%(levelname)s] %(message)s",
+#     handlers=[
+#         logging.FileHandler("reports/test_log.log"),  # Save logs to file
+#         logging.StreamHandler()                      # Show logs in console
+#     ]
+# )
 
 @pytest.fixture(scope="session")
 def logger():
