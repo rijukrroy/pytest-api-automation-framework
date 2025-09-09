@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Sep 09 12:25:47 GMT 2025","Tue Sep 09 12:25:47 GMT 2025","373","tests","test_users_negative","","","","test_create_user_invalid_token","Verify creating a user with an invalid token fails (401)"
+"passed","Tue Sep 09 12:25:48 GMT 2025","Tue Sep 09 12:25:49 GMT 2025","782","tests","test_users_negative","","","","test_create_user_duplicate_email","Verify creating a user with duplicate email fails (422)"
+"passed","Tue Sep 09 12:25:43 GMT 2025","Tue Sep 09 12:25:44 GMT 2025","1216","tests","test_users","","","","Create user → manoj",""
+"passed","Tue Sep 09 12:25:47 GMT 2025","Tue Sep 09 12:25:48 GMT 2025","366","tests","test_users_negative","","","","test_create_user_missing_fields","Verify creating a user with missing fields fails (422)"
+"passed","Tue Sep 09 12:25:44 GMT 2025","Tue Sep 09 12:25:46 GMT 2025","1688","tests","test_users","","","","Create user → sanjib",""
+"passed","Tue Sep 09 12:25:46 GMT 2025","Tue Sep 09 12:25:47 GMT 2025","1194","tests","test_users","","","","Create user → petli",""
+"passed","Tue Sep 09 12:25:41 GMT 2025","Tue Sep 09 12:25:43 GMT 2025","1771","tests","test_users","","","","Create user → riju",""
