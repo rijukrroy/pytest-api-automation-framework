@@ -30,6 +30,9 @@ jobs:
           mkdir -p reports
           pytest -v --alluredir=reports/
 
+      - name: Debug reports folder
+        run: ls -R reports || echo "No reports directory"
+
       - name: Upload Allure results as artifact
         uses: actions/upload-artifact@v3
         with:
