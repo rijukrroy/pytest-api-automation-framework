@@ -30,6 +30,12 @@ jobs:
           mkdir -p reports
           pytest -v --alluredir=reports/
 
+      - name: Add Allure environment & executor info
+        run: |
+          echo "BASE_URL=https://gorest.co.in" >> reports/environment.properties
+          echo "AUTH_TOKEN=Bearer ****" >> reports/environment.properties
+          echo '{"name":"GitHub Actions","type":"CI","url":"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' > reports/executor.json
+
       - name: Debug reports folder
         run: ls -R reports || echo "No reports directory"
 
