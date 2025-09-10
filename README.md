@@ -112,9 +112,7 @@ project-root/
 └── conftest.py       # Pytest fixtures (setup/teardown)
 ```
 ## ⚙️ Setup Instructions
-
-### Run Locally
-```bash
+```
 pytest --alluredir=allure-results --junitxml=allure-results/junit-results.xml
 ```
 ## 🏗 Jenkins Pipeline Setup
