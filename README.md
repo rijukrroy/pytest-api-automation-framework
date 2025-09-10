@@ -6,14 +6,14 @@
   <img src="https://img.shields.io/badge/license-MIT-yellow.svg" alt="License">
 </p>
 
-# 🚀 API Test Automation Framework (Pytest + Jenkins + Allure)
+# API Test Automation Framework (Pytest + Jenkins + Allure)
 
 This project is a **REST API Test Automation Framework** built with **Python, Pytest, and Requests**, fully integrated with **Jenkins CI/CD** and **Allure Reporting**.  
 It is designed to be **scalable, maintainable, and CI/CD-ready** for professional API testing projects.
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 - [Features](#-features)
 - [Quick Start](#-quick-start)
 - [Project Structure](#-project-structure)
@@ -22,17 +22,33 @@ It is designed to be **scalable, maintainable, and CI/CD-ready** for professiona
 - [Allure Reports](#-allure-reports)
 - [Tech Stack](#-tech-stack)
 - [Screenshots](#-screenshots)
+  - [Jenkins Pipeline Stages](#jenkins-pipeline-stages)
+  - [Allure Report Dashboard](#allure-report-dashboard)
+  - [Test Results Summary](#test-results-summary)
+
+---
+
+### 📷 Screenshots
+
+#### Jenkins Pipeline Stages  
+![Jenkins Pipeline](docs/jenkins_pipeline.png)
+
+#### Allure Report Dashboard  
+![Allure Dashboard](docs/allure_dashboard.png)
+
+#### Test Results Summary  
+![Test Results](docs/test_results.png)
 
 ---
 
 ## ✅ Features
-- **Test Framework:** [Pytest](https://docs.pytest.org/) (simple, powerful, extensible).  
-- **HTTP Requests:** Python [Requests](https://docs.python-requests.org/) for REST API calls.  
-- **Schema Validation:** JSON Schema validation with [jsonschema](https://pypi.org/project/jsonschema/).  
-- **Data-Driven Testing:** External test data via Excel ([openpyxl](https://openpyxl.readthedocs.io/)).  
-- **CI/CD Integration:** Automated pipeline via **Jenkins + GitHub Actions**.  
-- **Test Reports:** Beautiful **Allure Reports** + **JUnit XML results**.  
-- **Organized Structure:** Utilities, schemas, tests, and reports separated.  
+- **Test Framework:** Built on [Pytest](https://docs.pytest.org/) (simple, powerful, extensible).  
+- **HTTP Requests:** Uses Python [requests](https://docs.python-requests.org/) for REST API calls.  
+- **Schema Validation:** JSON Schema validation using [jsonschema](https://pypi.org/project/jsonschema/).  
+- **Data-Driven Testing:** External test data managed via Excel ([openpyxl](https://openpyxl.readthedocs.io/)).  
+- **CI/CD Integration:** Automated pipeline via **Jenkins** with GitHub integration.  
+- **Test Reports:** Rich **Allure Reports** + **JUnit XML test results**.  
+- **Scalable Structure:** Organized modules for utilities, schemas, tests, and reports.  
 
 ---
 
@@ -42,31 +58,41 @@ It is designed to be **scalable, maintainable, and CI/CD-ready** for professiona
 ```bash
 git clone https://github.com/rijukrroy/pytest-api-automation-framework.git
 cd pytest-api-automation-framework
-2️⃣ Create Virtual Environment
+```
+### 2️⃣ Create Virtual Environment
+```
 python3 -m venv venv
 source venv/bin/activate     # On Linux/Mac
 venv\Scripts\activate        # On Windows
-
-3️⃣ Install Dependencies
+```
+### 3️⃣ Install Dependencies
+```
 pip install -r requirements.txt
-
-4️⃣ Run Tests
+```
+### 4️⃣ Run Tests
+```
 pytest -v --alluredir=reports/
-
-5️⃣ Generate Allure Report
+```
+### 5️⃣ Generate Allure Report
+```
 # Serve report in browser
 allure serve reports/
 
 # OR generate static HTML files
 allure generate reports/ -o allure-report --clean
+```
+### 6️⃣ View Reports
 
-6️⃣ View Reports
+Dynamic Report: 
 
-Dynamic Report: allure serve reports/
+        allure serve reports/
 
-Static Report: Open allure-report/index.html in browser
+Static Report: 
 
-📂 Project Structure
+        Open allure-report/index.html in browser
+
+### 📂 Project Structure
+```
 project-root/
 ├── libraries/        # Utility modules (helpers, custom functions, etc.)
 │   └── util.py
@@ -84,14 +110,14 @@ project-root/
 ├── requirements.txt  # Python dependencies
 ├── README.md         # Project documentation
 └── conftest.py       # Pytest fixtures (setup/teardown)
-
-⚙️ Setup Instructions
+```
+### ⚙️ Setup Instructions
 Run Locally
 pytest --alluredir=allure-results --junitxml=allure-results/junit-results.xml
 
 🏗 Jenkins Pipeline Setup
-
-Open Jenkins → New Item → Pipeline
+```
+Open Jenkins → New Item → Pipeline.
 
 Connect GitHub repo:
 
@@ -100,31 +126,37 @@ Repository URL: https://github.com/rijukrroy/pytest-api-automation-framework.git
 Branch: main
 
 Jenkins automatically detects the Jenkinsfile.
-
-Pipeline Stages:
+```
+### Pipeline stages:
 
 ✅ Checkout code
+
 ✅ Setup Python virtual environment
+
 ✅ Install dependencies
+
 ✅ Run tests with Pytest
+
 ✅ Archive results (JUnit XML)
+
 ✅ Generate & publish Allure Report
 
-📊 Allure Reports
-Local Machine
+### 📊 Allure Reporting
+### Local Machine:
+```
 allure serve allure-results
+```
+### In Jenkins
+```
+Allure report is generated automatically in the pipeline.
 
-In Jenkins
-
-Allure report is auto-generated in the pipeline.
-
-View it via Jenkins → Build Artifacts → Allure Report.
-
-🛠 Tech Stack
-
+View the report from Jenkins job → Build Artifacts → Allure Report.
+```
+### 🛠 Tech Stack
+```
 Language: Python 3.12
 
-Framework: Pytest
+Test Framework: Pytest
 
 HTTP Client: Requests
 
@@ -132,17 +164,31 @@ Validation: JSONSchema
 
 Reporting: Allure, JUnit XML
 
-CI/CD: Jenkins, GitHub Actions
+CI/CD: Jenkins Pipeline (Groovy, Declarative)
+```
+### 📷 Screenshots
 
-📷 Screenshots
-Allure Overview
+- **Jenkins Pipeline Stages**  
+  ![Jenkins Pipeline](docs/jenkins_pipeline.png)
 
-Test Suites
+- **Allure Report Dashboard**  
+  ![Allure Dashboard](docs/allure_dashboard.png)
 
-Trends
+- **Test Results Summary**  
+  ![Test Results](docs/test_results.png)
 
-Jenkins Stage View
+## 📊 Allure Reports
 
-📜 License
+Below are sample reports generated using **Allure** for this project:
 
-This project is licensed under the MIT License.
+### Overview
+![Allure Overview](docs/allure_overview.png)
+
+### Test Suites
+![Allure Suites](docs/allure_suites.png)
+
+### Trends
+![Allure Trends](docs/allure_trends.png)
+
+### Jenkins Stage View
+![Stage View](docs/Stage_view.png)
