@@ -14,30 +14,14 @@ It is designed to be **scalable, maintainable, and CI/CD-ready** for professiona
 ---
 
 ## Table of Contents
-- [Features](#-features)
-- [Quick Start](#-quick-start)
-- [Project Structure](#-project-structure)
-- [Setup Instructions](#-setup-instructions)
-- [Jenkins Pipeline](#-jenkins-pipeline-setup)
-- [Allure Reports](#-allure-reports)
-- [Tech Stack](#-tech-stack)
-- [Screenshots](#-screenshots)
-  - [Jenkins Pipeline Stages](#jenkins-pipeline-stages)
-  - [Allure Report Dashboard](#allure-report-dashboard)
-  - [Test Results Summary](#test-results-summary)
-
----
-
-### 📷 Screenshots
-
-#### Jenkins Pipeline Stages  
-![Jenkins Pipeline](docs/Stage_view.png)
-
-#### Allure Report Dashboard  
-![Allure Dashboard](docs/allure_overview.png)
-
-#### Test Results Summary  
-![Test Results](docs/allure_suites.png)
+- [Features](#features)
+- [Quick Start](#quick-start)
+- [Project Structure](#project-structure)
+- [Setup Instructions](#setup-instructions)
+- [Jenkins Pipeline](#jenkins-pipeline-setup)
+- [Allure Reports](#allure-reports)
+- [Tech Stack](#tech-stack)
+- [Screenshots](#screenshots)
 
 ---
 
@@ -58,41 +42,40 @@ It is designed to be **scalable, maintainable, and CI/CD-ready** for professiona
 ```bash
 git clone https://github.com/rijukrroy/pytest-api-automation-framework.git
 cd pytest-api-automation-framework
-```
-### 2️⃣ Create Virtual Environment
-```
+2️⃣ Create Virtual Environment
+bash
+Copy code
 python3 -m venv venv
 source venv/bin/activate     # On Linux/Mac
 venv\Scripts\activate        # On Windows
-```
-### 3️⃣ Install Dependencies
-```
+3️⃣ Install Dependencies
+bash
+Copy code
 pip install -r requirements.txt
-```
-### 4️⃣ Run Tests
-```
+4️⃣ Run Tests
+bash
+Copy code
 pytest -v --alluredir=reports/
-```
-### 5️⃣ Generate Allure Report
-```
+5️⃣ Generate Allure Report
+bash
+Copy code
 # Serve report in browser
 allure serve reports/
 
 # OR generate static HTML files
 allure generate reports/ -o allure-report --clean
-```
-### 6️⃣ View Reports
+6️⃣ View Reports
+Dynamic Report:
 
-Dynamic Report: 
+bash
+Copy code
+allure serve reports/
+Static Report:
+Open allure-report/index.html in browser.
 
-        allure serve reports/
-
-Static Report: 
-
-        Open allure-report/index.html in browser
-
-### 📂 Project Structure
-```
+📂 Project Structure
+graphql
+Copy code
 project-root/
 ├── libraries/        # Utility modules (helpers, custom functions, etc.)
 │   └── util.py
@@ -110,87 +93,69 @@ project-root/
 ├── requirements.txt  # Python dependencies
 ├── README.md         # Project documentation
 └── conftest.py       # Pytest fixtures (setup/teardown)
-```
-## ⚙️ Setup Instructions
-
-### Run Locally
-```
+Setup Instructions
+Run Locally
+bash
+Copy code
 pytest --alluredir=allure-results --junitxml=allure-results/junit-results.xml
-```
-## 🏗 Jenkins Pipeline Setup
+🏗 Jenkins Pipeline Setup
 Open Jenkins → New Item → Pipeline.
-```
 
-Connect GitHub repo:
-
+bash
+Copy code
 Repository URL: https://github.com/rijukrroy/pytest-api-automation-framework.git
-
 Branch: main
-
 Jenkins automatically detects the Jenkinsfile.
-```
-### Pipeline stages:
 
+Pipeline stages:
 ✅ Checkout code
-
 ✅ Setup Python virtual environment
-
 ✅ Install dependencies
-
 ✅ Run tests with Pytest
-
 ✅ Archive results (JUnit XML)
-
 ✅ Generate & publish Allure Report
 
-### 📊 Allure Reporting
-### Local Machine:
-```
+📊 Allure Reporting
+Local Machine:
+bash
+Copy code
 allure serve allure-results
-```
-### In Jenkins
-```
+In Jenkins:
 Allure report is generated automatically in the pipeline.
-
 View the report from Jenkins job → Build Artifacts → Allure Report.
-```
-### 🛠 Tech Stack
-```
+
+🛠 Tech Stack
+yaml
+Copy code
 Language: Python 3.12
-
 Test Framework: Pytest
-
 HTTP Client: Requests
-
 Validation: JSONSchema
-
 Reporting: Allure, JUnit XML
-
 CI/CD: Jenkins Pipeline (Groovy, Declarative)
-```
-### 📷 Screenshots
+📷 Screenshots
+Jenkins Pipeline Stages
 
-- **Jenkins Pipeline Stages**  
-  ![Jenkins Pipeline](docs/jenkins_pipeline.png)
 
-- **Allure Report Dashboard**  
-  ![Allure Dashboard](docs/allure_dashboard.png)
+Allure Report Dashboard
 
-- **Test Results Summary**  
-  ![Test Results](docs/test_results.png)
 
-## 📊 Allure Reports
+Test Results Summary
 
-Below are sample reports generated using **Allure** for this project:
 
-### Overview
-![Allure Overview](docs/allure_overview.png)
+Allure Trends
 
-### Test Suites
-![Allure Suites](docs/allure_suites.png)
 
-### Trends
-![Allure Trends](docs/allure_trends.png)
+📊 Allure Reports
+Below are sample reports generated using Allure for this project:
 
-### Jenkins Stage View
-![Stage View](docs/Stage_view.png)
+Overview
+
+
+Test Suites
+
+
+Trends
+
+
+Jenkins Stage View
