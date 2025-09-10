@@ -111,13 +111,13 @@ project-root/
 ├── README.md         # Project documentation
 └── conftest.py       # Pytest fixtures (setup/teardown)
 ```
-### ⚙️ Setup Instructions
+## ⚙️ Setup Instructions
 Run Locally
 pytest --alluredir=allure-results --junitxml=allure-results/junit-results.xml
 
-🏗 Jenkins Pipeline Setup
-```
+## 🏗 Jenkins Pipeline Setup
 Open Jenkins → New Item → Pipeline.
+...
 
 Connect GitHub repo:
 
