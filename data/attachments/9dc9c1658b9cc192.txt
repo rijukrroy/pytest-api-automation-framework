@@ -1,3 +1,0 @@
-2025-09-09 22:33:35,999 [INFO] ➡️ Sending POST request to https://gorest.co.in/public/v2/users/ with data: {'name': 'riju', 'email': 'riju001@company.com', 'gender': 'male', 'status': 'active'}
-2025-09-09 22:33:36,470 [INFO] ➡️ Sending GET request to https://gorest.co.in/public/v2/users/8111232
-2025-09-09 22:33:36,872 [INFO] 🗑️ Deleting user with ID 8111232
