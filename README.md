@@ -75,7 +75,7 @@ Static Report:
 ```
 Open allure-report/index.html in browser.
 ```
-📂 Project Structure
+### 📂 Project Structure
 ```
 project-root/
 ├── libraries/        # Utility modules (helpers, custom functions, etc.)
@@ -95,7 +95,7 @@ project-root/
 ├── README.md         # Project documentation
 └── conftest.py       # Pytest fixtures (setup/teardown)
 ```
-### Setup Instructions
+### ⚙️ Setup Instructions
 ```
 #Run Locally
 pytest --alluredir=allure-results --junitxml=allure-results/junit-results.xml
@@ -120,16 +120,15 @@ Jenkins automatically detects the Jenkinsfile.
 
 ✅ Generate & publish Allure Report
 
-📊 Allure Reporting
+### 📊 Allure Reports
+```
 Local Machine:
-bash
-Copy code
 allure serve allure-results
 In Jenkins:
 Allure report is generated automatically in the pipeline.
 View the report from Jenkins job → Build Artifacts → Allure Report.
-
-🛠 Tech Stack
+```
+### 🛠 Tech Stack
 ```
 Language: Python 3.12
 Test Framework: Pytest
@@ -139,18 +138,13 @@ Reporting: Allure, JUnit XML
 CI/CD: Jenkins Pipeline (Groovy, Declarative)
 ```
 
-📷 Screenshots
+### 📷 Screenshots
+```
 Jenkins Pipeline Stages
-
-
 Allure Report Dashboard
-
-
 Test Results Summary
-
-
 Allure Trends
-
+```
 
 📊 Allure Reports
 Below are sample reports generated using Allure for this project:
