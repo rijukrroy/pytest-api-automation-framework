@@ -14,14 +14,14 @@ It is designed to be **scalable, maintainable, and CI/CD-ready** for professiona
 ---
 
 ## Table of Contents
-- [Features](#features)
-- [Quick Start](#quick-start)
-- [Project Structure](#project-structure)
-- [Setup Instructions](#setup-instructions)
-- [Jenkins Pipeline](#jenkins-pipeline-setup)
-- [Allure Reports](#allure-reports)
-- [Tech Stack](#tech-stack)
-- [Screenshots](#screenshots)
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Setup Instructions](#-setup-instructions)
+- [Jenkins Pipeline](#-jenkins-pipeline-setup)
+- [Allure Reports](#-allure-reports)
+- [Tech Stack](#-tech-stack)
+- [Screenshots](#-screenshots)
 
 ---
 
