@@ -117,7 +117,7 @@ pytest --alluredir=allure-results --junitxml=allure-results/junit-results.xml
 
 ## 🏗 Jenkins Pipeline Setup
 Open Jenkins → New Item → Pipeline.
-...
+```
 
 Connect GitHub repo:
 
