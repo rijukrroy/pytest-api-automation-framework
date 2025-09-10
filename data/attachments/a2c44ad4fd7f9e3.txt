@@ -1,1 +1,0 @@
-2025-09-10 12:05:34,770 [INFO] Sending POST with invalid token
