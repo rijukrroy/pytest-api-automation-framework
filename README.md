@@ -39,43 +39,44 @@ It is designed to be **scalable, maintainable, and CI/CD-ready** for professiona
 ## ⚡ Quick Start
 
 ### 1️⃣ Clone the Repository
-```bash
+```
 git clone https://github.com/rijukrroy/pytest-api-automation-framework.git
 cd pytest-api-automation-framework
-2️⃣ Create Virtual Environment
-bash
-Copy code
+```
+### 2️⃣ Create Virtual Environment
+```
 python3 -m venv venv
 source venv/bin/activate     # On Linux/Mac
 venv\Scripts\activate        # On Windows
-3️⃣ Install Dependencies
-bash
-Copy code
+```
+
+### 3️⃣ Install Dependencies
+```
 pip install -r requirements.txt
-4️⃣ Run Tests
-bash
-Copy code
+```
+### 4️⃣ Run Tests
+```
 pytest -v --alluredir=reports/
-5️⃣ Generate Allure Report
-bash
-Copy code
+```
+### 5️⃣ Generate Allure Report
+```
 # Serve report in browser
 allure serve reports/
 
 # OR generate static HTML files
 allure generate reports/ -o allure-report --clean
-6️⃣ View Reports
+```
+### 6️⃣ View Reports
 Dynamic Report:
-
-bash
-Copy code
+```
 allure serve reports/
+```
 Static Report:
+```
 Open allure-report/index.html in browser.
-
+```
 📂 Project Structure
-graphql
-Copy code
+```
 project-root/
 ├── libraries/        # Utility modules (helpers, custom functions, etc.)
 │   └── util.py
@@ -93,26 +94,30 @@ project-root/
 ├── requirements.txt  # Python dependencies
 ├── README.md         # Project documentation
 └── conftest.py       # Pytest fixtures (setup/teardown)
-Setup Instructions
-Run Locally
-bash
-Copy code
+```
+### Setup Instructions
+```
+#Run Locally
 pytest --alluredir=allure-results --junitxml=allure-results/junit-results.xml
-🏗 Jenkins Pipeline Setup
+```
+### 🏗 Jenkins Pipeline Setup
+```
 Open Jenkins → New Item → Pipeline.
-
-bash
-Copy code
 Repository URL: https://github.com/rijukrroy/pytest-api-automation-framework.git
 Branch: main
 Jenkins automatically detects the Jenkinsfile.
-
-Pipeline stages:
+```
+### Pipeline stages
 ✅ Checkout code
+
 ✅ Setup Python virtual environment
+
 ✅ Install dependencies
+
 ✅ Run tests with Pytest
+
 ✅ Archive results (JUnit XML)
+
 ✅ Generate & publish Allure Report
 
 📊 Allure Reporting
@@ -125,14 +130,15 @@ Allure report is generated automatically in the pipeline.
 View the report from Jenkins job → Build Artifacts → Allure Report.
 
 🛠 Tech Stack
-yaml
-Copy code
+```
 Language: Python 3.12
 Test Framework: Pytest
 HTTP Client: Requests
 Validation: JSONSchema
 Reporting: Allure, JUnit XML
 CI/CD: Jenkins Pipeline (Groovy, Declarative)
+```
+
 📷 Screenshots
 Jenkins Pipeline Stages
 
