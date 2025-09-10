@@ -143,13 +143,13 @@ CI/CD: Jenkins Pipeline (Groovy, Declarative)
 ## 📷 Screenshots  
 
 ### Jenkins Pipeline Stages  
-![Jenkins Pipeline](docs/jenkins_pipeline.png)  
+![Jenkins Pipeline](docs/Stage_view.png)  
 
 ### Allure Report Dashboard  
-![Allure Dashboard](docs/allure_dashboard.png)  
+![Allure Dashboard](docs/allure_overview.png)  
 
 ### Test Results Summary  
-![Test Results](docs/test_results.png)  
+![Test Results](docs/allure_suites.png)  
 
 ### Allure Trends  
 ![Allure Trends](docs/allure_trends.png)  
