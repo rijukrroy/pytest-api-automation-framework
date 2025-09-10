@@ -94,6 +94,8 @@ project-root/
 ├── requirements.txt  # Python dependencies
 ├── README.md         # Project documentation
 └── conftest.py       # Pytest fixtures (setup/teardown)
+
+
 ```
 ### 🏗️ Setup Instructions
 ```
