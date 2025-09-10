@@ -1,3 +1,0 @@
-INFO     tests.test_users:test_users.py:44 ➡️ Sending POST request to https://gorest.co.in/public/v2/users/ with data: {'name': 'riju', 'email': 'riju001@company.com', 'gender': 'male', 'status': 'active'}
-INFO     tests.test_users:test_users.py:60 ➡️ Sending GET request to https://gorest.co.in/public/v2/users/8111736
-INFO     tests.test_users:test_users.py:74 🗑️ Deleting user with ID 8111736
