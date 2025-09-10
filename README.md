@@ -31,13 +31,13 @@ It is designed to be **scalable, maintainable, and CI/CD-ready** for professiona
 ### 📷 Screenshots
 
 #### Jenkins Pipeline Stages  
-![Jenkins Pipeline](docs/jenkins_pipeline.png)
+![Jenkins Pipeline](docs/Stage_view.png)
 
 #### Allure Report Dashboard  
-![Allure Dashboard](docs/allure_dashboard.png)
+![Allure Dashboard](docs/allure_overview.png)
 
 #### Test Results Summary  
-![Test Results](docs/test_results.png)
+![Test Results](docs/allure_suites.png)
 
 ---
 
@@ -112,6 +112,8 @@ project-root/
 └── conftest.py       # Pytest fixtures (setup/teardown)
 ```
 ## ⚙️ Setup Instructions
+
+### Run Locally
 ```
 pytest --alluredir=allure-results --junitxml=allure-results/junit-results.xml
 ```
