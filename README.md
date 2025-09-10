@@ -140,25 +140,16 @@ Validation: JSONSchema
 Reporting: Allure, JUnit XML
 CI/CD: Jenkins Pipeline (Groovy, Declarative)
 ```
+## 📷 Screenshots  
 
-### 📷 Screenshots
-```
-Jenkins Pipeline Stages
-Allure Report Dashboard
-Test Results Summary
-Allure Trends
-```
+### Jenkins Pipeline Stages  
+![Jenkins Pipeline](docs/jenkins_pipeline.png)  
 
-📊 Allure Reports
-Below are sample reports generated using Allure for this project:
+### Allure Report Dashboard  
+![Allure Dashboard](docs/allure_dashboard.png)  
 
-Overview
+### Test Results Summary  
+![Test Results](docs/test_results.png)  
 
-
-Test Suites
-
-
-Trends
-
-
-Jenkins Stage View
+### Allure Trends  
+![Allure Trends](docs/allure_trends.png)  
