@@ -17,7 +17,7 @@ It is designed to be **scalable, maintainable, and CI/CD-ready** for professiona
 - [Features](#-features)
 - [Quick Start](#-quick-start)
 - [Project Structure](#-project-structure)
-- [Setup Instructions](#setup-instructions)
+- [Setup Instructions](#-setup-instructions)
 - [Jenkins Pipeline](#-jenkins-pipeline-setup)
 - [Allure Reports](#-allure-reports)
 - [Tech Stack](#-tech-stack)
@@ -98,7 +98,7 @@ project-root/
 
 
 ```
-### 🏗️ Setup Instructions
+### 📂 Setup Instructions
 ```
 Run Locally
 pytest --alluredir=allure-results --junitxml=allure-results/junit-results.xml
