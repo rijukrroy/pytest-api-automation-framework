@@ -1,40 +1,28 @@
-# conftest.py
-import os
 import pytest
 import logging
 import os
-import logging
-import pytest
 
-# Ensure reports directory exists
-os.makedirs("reports", exist_ok=True)
+# Ensure logs directory exists
+os.makedirs("logs", exist_ok=True)
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.FileHandler("reports/test_log.log"),
-        logging.StreamHandler()
-    ]
-)
-#
-# logger = logging.getLogger(__name__)
-#
-# # --- Logging Configuration ---
-# logging.basicConfig(
-#     level=logging.INFO,
-#     format="%(asctime)s [%(levelname)s] %(message)s",
-#     handlers=[
-#         logging.FileHandler("reports/test_log.log"),  # Save logs to file
-#         logging.StreamHandler()                      # Show logs in console
-#     ]
-# )
+@pytest.fixture(scope="session", autouse=True)
+def configure_logging():
+    logging.basicConfig(
+        filename="logs/test.log",
+        filemode="w",  # overwrite each run
+        format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+        level=logging.INFO
+    )
+    logging.getLogger().addHandler(logging.StreamHandler())  # also show in console
+    logging.info("✅ Logging initialized")
+
 
 @pytest.fixture(scope="session")
 def logger():
     """Provide a logger instance for tests"""
     return logging.getLogger("pytest_api_framework")
+
 
 # --- Allure environment.properties setup ---
 @pytest.hookimpl(tryfirst=True)
@@ -47,7 +35,16 @@ def pytest_configure(config):
             f.write(f"BASE_URL={os.getenv('BASE_URL')}\n")
             f.write(f"AUTH_TOKEN={os.getenv('AUTH_TOKEN')}\n")
 
-# --- Fixtures ---
+
+# --- Log test start and finish ---
+def pytest_runtest_setup(item):
+    logging.info(f"🚀 Starting test: {item.name}")
+
+def pytest_runtest_teardown(item, nextitem):
+    logging.info(f"✅ Finished test: {item.name}")
+
+
+# --- Fixtures for API tests ---
 @pytest.fixture(scope="session")
 def base_url():
     """Fixture to provide base URL from environment variable"""

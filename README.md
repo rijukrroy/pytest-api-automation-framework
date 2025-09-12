@@ -6,12 +6,9 @@
   <img src="https://img.shields.io/badge/license-MIT-yellow.svg" alt="License">
 </p>
 
-# API Test Automation Framework (Pytest + Jenkins + Allure)
+# 🚀 API Test Automation Framework (Pytest + Jenkins + Allure)
 
-This project is a **REST API Test Automation Framework** built with **Python, Pytest, and Requests**, fully integrated with **Jenkins CI/CD** and **Allure Reporting**.  
-It is designed to be **scalable, maintainable, and CI/CD-ready** for professional API testing projects.
-
----
+A **scalable REST API Test Automation Framework** using **Python, Pytest, Requests**, fully integrated with **Allure Reporting** and **CI/CD pipelines (Jenkins / GitHub Actions)**.  
 
 ## Table of Contents
 - [Features](#-features)

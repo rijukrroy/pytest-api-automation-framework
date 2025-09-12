@@ -1,5 +1,13 @@
 import openpyxl
 import json
+import os
+
+def load_schema(schema_name: str):
+    """Load JSON schema from schemas/ directory"""
+    schema_path = os.path.join("schemas", schema_name)
+    with open(schema_path, "r") as f:
+        return json.load(f)
+
 
 def read_excel_data(file_path):
     workbook = openpyxl.load_workbook(file_path)
